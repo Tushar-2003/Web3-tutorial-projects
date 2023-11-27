@@ -1,7 +1,8 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import { string } from "hardhat/internal/core/params/argumentTypes";
-require("dotenv").config();
+import dotenv from "dotenv";
+dotenv.config();
 
 
 const config: any = {
