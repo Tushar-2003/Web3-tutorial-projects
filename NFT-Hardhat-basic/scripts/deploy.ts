@@ -1,20 +1,23 @@
-import hre from "hardhat";
-import { NFTee__factory } from "../typechain-types";
-
-
+// Import the Hardhat package
+const hre = require("hardhat");
 
 async function main() {
-  const nftContract = await hre.ethers.deployContract("NFTee")
+    // Using `hre` - Hardhat Runtime Environment - we find and deploy
+  	// a contract named `NFTee`
+    const nftContract = await hre.ethers.deployContract("NFTee");
 
-  await nftContract.waitForDeployment();
+    // We wait for the contract to finish deploying
+    await nftContract.waitForDeployment();
 
-  console.log("NFT Contract Address:", nftContract.target)
+    // We print the address of the deployed contract to our console
+    console.log(`NFT Contract Address: ${nftContract.target}`);
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
-main().then(()=>process.exit(0))
-  .catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+// Call the main function and catch if there is any error
+main()
+    .then(() => process.exit(0))
+    .catch((error) => {
+        console.error(error);
+        process.exit(1);
+    })
+    .finally(() =>console.log(" process finished"));

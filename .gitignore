@@ -3,5 +3,5 @@ package-lock.json
 cache
 artifacts
 typechain-types
-NFT-Hardhat-Basic
+.env
 ```
